@@ -1,0 +1,7 @@
+{
+  "name": "netstat",
+  "description": "Example host for native messaging",
+  "path": "C:\\Users\\lvergararodr\\source\\repos\\webextensions-examples\\native-messaging\\app\\getNetstat.bat",
+  "type": "stdio",
+  "allowed_extensions": [ "ping_pong@example.org" ]
+}

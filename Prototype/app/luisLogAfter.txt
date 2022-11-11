@@ -1,0 +1,32 @@
+{}
+{}
+{}
+{}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '34.120.208.123', 'destinationPort': '58252', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '34.120.208.123', 'destinationPort': '58259', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '34.120.208.123', 'destinationPort': '58260', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '52.113.194.132', 'destinationPort': '58120', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '157.240.24.13', 'destinationPort': '58265', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '157.240.24.13', 'destinationPort': '58266', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '9000', 'destinationIp': '157.240.24.35', 'destinationPort': '58253', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58249', 'destinationIp': '165.225.34.41', 'destinationPort': '80', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58250', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58251', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58252', 'destinationIp': '34.120.208.123', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58253', 'destinationIp': '157.240.24.35', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58254', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58255', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58256', 'destinationIp': '165.225.34.41', 'destinationPort': '8080', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58257', 'destinationIp': '20.62.149.92', 'destinationPort': '443', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58258', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58259', 'destinationIp': '34.120.208.123', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58260', 'destinationIp': '34.120.208.123', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58261', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58262', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58263', 'destinationIp': '20.62.149.92', 'destinationPort': '443', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58264', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'TIME_WAIT', 'pid': '0'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58265', 'destinationIp': '157.240.24.13', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58266', 'destinationIp': '157.240.24.13', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '12748'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58267', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{'protocol': 'TCP', 'sourceIp': '192.168.1.65', 'sourcePort': '58268', 'destinationIp': '165.225.34.41', 'destinationPort': '443', 'status': 'ESTABLISHED', 'pid': '7544'}
+{}
