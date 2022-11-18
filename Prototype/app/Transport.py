@@ -33,6 +33,7 @@ import os
 import os.path
 from os import path
 from time import sleep
+import requests
 
 try:
     # Python 3.x version
@@ -57,13 +58,28 @@ try:
         sys.stdout.buffer.write(encodedMessage['length'])
         sys.stdout.buffer.write(encodedMessage['content'])
         sys.stdout.buffer.flush()
+        
+    # Send http post request to database api
+    def sendToApi(bodyToSend):
+        # with open('./connections/' + tabFile + 'sendInfo', 'r+') as f:
+            # sys.stdout = f
+        #Url to api
+        url = "https://prototypeapi2022.azurewebsites.net/api/Connection/Create"
+        headers = {'Content-Type': 'application/json'}
 
+        #Making http post request
+        json_object = json.dumps(bodyToSend, indent=4)
+        response = requests.post(url, headers=headers, data=json_object, verify=False)
+        
     # createTab - Creates a file to store the connections for this tab
     # Inputs :
     # TabId
     # TabIndex
     def createTab(receivedMessage):
         original_stdout = sys.stdout # Save a reference to the original standard output
+        with open('log', 'w') as f:
+            sys.stdout = f # Change the standard output to the file we created.
+            print(receivedMessage)
         tabHandle = str(receivedMessage['dataIn']['tabId']);
         tabFile = str(tabHandle) + "connections.txt";
         responseMessage = {}
@@ -180,6 +196,8 @@ try:
                         connection['pid'] = split[4]
                         connection['userSelection'] = receivedMessage['dataIn'][0]['userSelection']
                         connection['epochTime'] = receivedMessage['dataIn'][0]['epochTime']
+                        if receivedMessage['optionsSendWith'] == 'Python':
+                            sendToApi(connection)
                         connectionEntry['connections'].append(connection)
             connectionEntry['status'] = "updated"
             json_object = json.dumps(connectionEntry, indent=4)

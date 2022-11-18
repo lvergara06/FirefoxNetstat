@@ -11,32 +11,38 @@
  ****************************************************************/
 let targetPage = "https://*./"; // Which pages trigger the dialog box
 
-// Get public IP
-const MAX_IP_LENGTH = 45; // For IPv6 is 39 expect in IPv4-mapped IPv6 case
-const MAIN_API_URL = "https://twin.sh/api/v1/ip";
-const FALLBACK_API_URL = "http://ip-api.com/line?fields=query";
+let globalHeaders = [];    // Used to pass message to popup window
 
-// Passing Headers from background to popup
-let globalHeaders = [];
+let optionsSendWith = "Python"
+let userSelection = "";     // Whatever choice the user makes is stored here 
+let sourceIp = "";          // Source Ip from Netstat
+let destinationUrl = "";    // Destination url from redirection or from response header
+let destinationIp = "";     // Destination Ip from redirection of from response header
+let baseDestinationUrl = ""; // In case the user typed address is convoluted we can save the base here
+let CREATEAPIADDRESS = "https://prototypeapi2022.azurewebsites.net/api/Connection/Create"; // API ready to save data
+let redirectNeeded = undefined;  // If the request need a redirection then we don't want to do certain things twice
+let epochTime = "";              // Time the request is made in miliseconds since unix epoch
+let completedIp = "";            // The destination ip address at the destination might not be the same at request
+let state = "";                  // The state of the request helps decide what to do next
+let savedData = undefined;       // NOT NEEDED?
+let message = [];                // Message to be passed to native application {state "" , dataIn [] , dataOut [] , errorMessage ""}
+let tabId = "";                  // The tab that started the request
+let requests = [];               // Requests made so far
+                                 // {
+                                 // id: "", request id from request headers
+                                 // url: "", url from user 
+                                 // method: "", get method from request headers
+                                 // type: "", type of object to fetch (in our case only main_frame)
+                                 // timeStamp: 0, epoch time from request headers
+                                 // tabId: "", the tab id that started the request
+                                 // destinationIp: "", the destination ip from response headers
+                                 // originalDestIp: "", the destination ip from response headers if there is redicetion involved
+                                 // globalHdrs: [], messages to pass to pop up windows
+                                 // completedIp: "", destination ip if the compleded ip address is not like the response ip
+                                 // requestStatus: "" the status of this request. 
+                                 // }
 
-// User Selection
-let userSelection = "";
-let sourceIp = "";
-let destinationUrl = "";
-let destinationIp = "";
-let baseDestinationUrl = "";
-let CREATEAPIADDRESS = "https://prototypeapi2022.azurewebsites.net/api/Connection/Create";
-let redirectNeeded = undefined;
-let epochTime = "";
-let completedIp = "";
-let state = "";
-let savedData = undefined;
-let message = []; // Message to be passed to native application
-let inOrder = undefined;
-let tabId = "";
-let tabIndex = "";
-let localWindowType = "";
-let requests = [];
+
 /*****************************************************************
  * Event Handlers
  ****************************************************************/
@@ -322,15 +328,20 @@ function onResponse(response) {
             // If netstat is called then we need to resend the connections
            if (response.dataOut.connections .length > 0) {
                for (let connection of response.dataOut.connections) {
-                    var request = new XMLHttpRequest();
-                    request.open("POST", CREATEAPIADDRESS);
-                    request.setRequestHeader("Content-Type", "application/json");
-                    request.overrideMimeType("text/plain");
-                    request.onload = function () {
-                       console.log("Response received: " + request.responseText);
-                    };
-                    console.log("connection :" + JSON.stringify(connection));
-                    request.send(JSON.stringify(connection));
+                   if (optionsSendWith === "Extension") {
+                       var request = new XMLHttpRequest();
+                       request.open("POST", CREATEAPIADDRESS);
+                       request.setRequestHeader("Content-Type", "application/json");
+                       request.overrideMimeType("text/plain");
+                       request.onload = function () {
+                           console.log("Response received: " + request.responseText);
+                       };
+                       console.log("connection :" + JSON.stringify(connection));
+                       request.send(JSON.stringify(connection));
+                   }
+                   else {
+                       console.log("connection :" + JSON.stringify(connection));
+                   }
                 }
             }
         }
@@ -399,6 +410,7 @@ browser.runtime.onMessage.addListener((msg) => {
                     originalDestIp: result.originalDestIp
                 }],
                 dataOut: [],
+                optionsSendWith: optionsSendWith,
                 exitMessage: ""
             };
             callNative();
